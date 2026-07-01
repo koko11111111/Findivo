@@ -24,7 +24,7 @@ export function Footer() {
             </div>
             <div className="flex flex-col gap-2">
               <a
-                href="mailto:hello@findivo.com"
+                href="mailto:findivo.support@gmail.com"
                 className="text-findivo-600 hover:text-findivo-900 dark:text-findivo-300 dark:hover:text-cream"
               >
                 Contact

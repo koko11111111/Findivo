@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Logo } from "@/components/Logo";
+import { GoogleSignInButton } from "@/components/GoogleSignInButton";
 
 export default function SignupPage() {
   const router = useRouter();
@@ -44,18 +45,34 @@ export default function SignupPage() {
           <h1 className="mt-4 font-serif text-2xl font-semibold tracking-tight text-findivo-900 dark:text-cream">Create account</h1>
           <p className="mt-1 text-sm text-findivo-500">Start finding better deals today</p>
         </div>
+
+        {/* Google Sign-Up */}
+        <div className="mb-6">
+          <GoogleSignInButton />
+        </div>
+
+        {/* Divider */}
+        <div className="relative mb-6">
+          <div className="absolute inset-0 flex items-center">
+            <div className="w-full border-t border-findivo-200 dark:border-findivo-700" />
+          </div>
+          <div className="relative flex justify-center text-sm">
+            <span className="bg-cream px-2 text-findivo-500 dark:bg-findivo-900 dark:text-findivo-400">Or sign up with email</span>
+          </div>
+        </div>
+
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label className="mb-1.5 block text-sm font-medium text-findivo-700 dark:text-findivo-300">Name</label>
-            <input type="text" value={displayName} onChange={(e) => setDisplayName(e.target.value)} placeholder="Your name" className="w-full rounded-xl border border-findivo-200 bg-cream-card px-4 py-3 text-sm text-findivo-900 outline-none ring-accent-400 transition focus:ring-2 dark:border-findivo-700 dark:bg-findivo-800 dark:text-cream" />
+            <input type="text" value={displayName} onChange={(e) => setDisplayName(e.target.value)} placeholder="Your name" className="w-full rounded-xl border border-findivo-200 bg-cream-card px-4 py-3 text-sm text-findivo-900 outline-none ring-accent-400 focus:ring-2 dark:border-findivo-700 dark:bg-findivo-800 dark:text-cream" />
           </div>
           <div>
             <label className="mb-1.5 block text-sm font-medium text-findivo-700 dark:text-findivo-300">Email</label>
-            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required placeholder="you@email.com" className="w-full rounded-xl border border-findivo-200 bg-cream-card px-4 py-3 text-sm text-findivo-900 outline-none ring-accent-400 transition focus:ring-2 dark:border-findivo-700 dark:bg-findivo-800 dark:text-cream" />
+            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required placeholder="you@email.com" className="w-full rounded-xl border border-findivo-200 bg-cream-card px-4 py-3 text-sm text-findivo-900 outline-none ring-accent-400 focus:ring-2 dark:border-findivo-700 dark:bg-findivo-800 dark:text-cream" />
           </div>
           <div>
             <label className="mb-1.5 block text-sm font-medium text-findivo-700 dark:text-findivo-300">Password</label>
-            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required minLength={8} placeholder="At least 8 characters" className="w-full rounded-xl border border-findivo-200 bg-cream-card px-4 py-3 text-sm text-findivo-900 outline-none ring-accent-400 transition focus:ring-2 dark:border-findivo-700 dark:bg-findivo-800 dark:text-cream" />
+            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required minLength={8} placeholder="At least 8 characters" className="w-full rounded-xl border border-findivo-200 bg-cream-card px-4 py-3 text-sm text-findivo-900 outline-none ring-accent-400 focus:ring-2 dark:border-findivo-700 dark:bg-findivo-800 dark:text-cream" />
           </div>
           {error && <p className="rounded-lg bg-red-50 px-4 py-3 text-sm text-red-600 dark:bg-red-950 dark:text-red-400">{error}</p>}
           <button type="submit" disabled={loading} className="w-full rounded-xl bg-accent-600 py-3 text-sm font-semibold text-white transition hover:bg-accent-700 disabled:opacity-60">
